@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "./dist",
     "target": "es5",
     "rootDir": "src",
+    "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "strictNullChecks": false,
@@ -32,6 +33,7 @@
       "components/*": ["components/*"],
       "templates/*": ["screens/*"],
       "routes/*": ["routes/*"],
+      "locale/*": ["locale/*"],
     },
   },
   "include": ["./src/**/*"],

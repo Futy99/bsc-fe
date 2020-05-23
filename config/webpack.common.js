@@ -2,7 +2,7 @@ const path = require('path')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 const config = require('./env')
 
 const resolve = name => `${config.build.DIR_NAME}${config.build.SOURCE}${name}`
@@ -26,6 +26,7 @@ module.exports = {
       constants: resolve('/constants'),
       templates: resolve('/screens'),
       routes: resolve('/routes'),
+      locale: resolve('/locale'),
     },
   },
   plugins: [
@@ -63,6 +64,10 @@ module.exports = {
         options: {
           limit: 100000,
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },

@@ -1,12 +1,22 @@
-import { RoutePaths } from 'constants/routePaths'
-import * as React from 'react'
-import { Link } from 'react-router-dom'
+import Detail from 'components/Detail'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getNote } from 'store/modules/note/actions'
 
-const NotesDetail = () => {
+const NotesDetail = (props) => {
+  const { state } = props.location
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(state?.id) {
+      const { id } = state
+      dispatch(getNote(id))
+    }
+  }, [])
+  
   return (
     <>
-      <h1>Hello, NotesDetail!</h1>
-      <Link to={RoutePaths.HOME}>Navigate to homepage</Link>
+      <Detail/>
     </>
   );
 };
