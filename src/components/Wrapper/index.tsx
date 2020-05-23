@@ -1,33 +1,44 @@
-import { Button, Menu, MenuItem, Typography, useTheme } from '@material-ui/core'
-import i18next from 'i18next'
-import React, { useState } from 'react'
+import {
+  Button,
+  Menu,
+  MenuItem,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
+import i18next from 'i18next';
+import React, { useState } from 'react';
 
-import { ChangeLanguage, Container, TopBar, TopBarText } from './styled'
+import { ChangeLanguage, Container, TopBar, TopBarText } from './styled';
 
 interface IProps {}
 
 const Wrapper = (props: React.PropsWithChildren<IProps>) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
-  const { children } = props
+  const { children } = props;
 
-  const handleButtonClick = (e) => {
-    setAnchorEl(e.currentTarget)
-  }
-  const handleClose = (closedByInsideClick: boolean = false, language: string = 'cs') => {
-    if(closedByInsideClick){
-      i18next.changeLanguage(language)
+  const handleButtonClick = e => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleClose = (
+    closedByInsideClick: boolean = false,
+    language: string = 'cs',
+  ) => {
+    if (closedByInsideClick) {
+      i18next.changeLanguage(language);
     }
     setAnchorEl(null);
   };
   return (
     <Container>
       <TopBar theme={theme}>
-        <TopBarText>
-          Notes
-        </TopBarText>
+        <TopBarText>Notes</TopBarText>
         <ChangeLanguage>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={(e) => handleButtonClick(e)}>
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={e => handleButtonClick(e)}
+          >
             Change language
           </Button>
           <Menu
@@ -41,7 +52,7 @@ const Wrapper = (props: React.PropsWithChildren<IProps>) => {
               <Typography color="textSecondary">cs</Typography>
             </MenuItem>
             <MenuItem onClick={() => handleClose(true, 'en')}>
-            <Typography color="textSecondary">en</Typography>
+              <Typography color="textSecondary">en</Typography>
             </MenuItem>
           </Menu>
         </ChangeLanguage>
@@ -49,6 +60,6 @@ const Wrapper = (props: React.PropsWithChildren<IProps>) => {
       <>{children}</>
     </Container>
   );
-}
+};
 
 export default Wrapper;

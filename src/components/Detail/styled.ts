@@ -1,5 +1,5 @@
-import { Card, TextField } from '@material-ui/core'
-import styled from 'styled-components'
+import { Card, TextField } from '@material-ui/core';
+import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
   min-width: 600px;

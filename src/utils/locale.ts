@@ -1,7 +1,7 @@
-import i18next from 'i18next'
-import translationsCs from 'locale/cs/translation.json'
-import translationsEn from 'locale/en/translation.json'
-import { initReactI18next } from 'react-i18next'
+import i18next from 'i18next';
+import translationsCs from 'locale/cs/translation.json';
+import translationsEn from 'locale/en/translation.json';
+import { initReactI18next } from 'react-i18next';
 
 export const supportedLanguages = ['en', 'cs'];
 

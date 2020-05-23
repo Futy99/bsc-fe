@@ -1,6 +1,6 @@
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import styled from 'styled-components'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import styled from 'styled-components';
 
 export const ExpandCard = styled(ExpansionPanel)`
   min-width: 500px;

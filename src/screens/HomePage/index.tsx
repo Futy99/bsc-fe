@@ -1,10 +1,10 @@
-import Notes from 'components/Notes'
-import React from 'react'
+import Notes from 'components/Notes';
+import React from 'react';
 
 const HomePage = () => {
   return (
     <>
-      <Notes/>
+      <Notes />
     </>
   );
 };

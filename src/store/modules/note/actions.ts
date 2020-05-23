@@ -1,4 +1,4 @@
-import { INote } from '../notes/@types'
+import { INote } from '../notes/@types';
 
 export enum Types {
   GET_NOTE = 'note/GET_NOTE',
@@ -13,39 +13,39 @@ export const getNote = (id: string) => {
   return {
     type: Types.GET_NOTE,
     payload: { id },
-  }
-}
+  };
+};
 
 export const getNoteSuccess = (note: INote) => {
   return {
     type: Types.GET_NOTE_SUCCESS,
     payload: { note },
-  }
-}
+  };
+};
 
 export const getNoteFailure = (error: Error) => {
   return {
     type: Types.GET_NOTE_FAILURE,
-    payload: { error }
-  }
-}
+    payload: { error },
+  };
+};
 
 export const updateNote = (id: string, text: string) => {
   return {
     type: Types.UPDATE_NOTE,
     payload: { id, text },
-  }
-}
+  };
+};
 
 export const updateNoteSuccess = (note: INote) => {
   return {
     type: Types.UPDATE_NOTE_SUCCESS,
     payload: { note },
-  }
-}
+  };
+};
 
 export const updateNoteFailure = () => {
   return {
     type: Types.UPDATE_NOTE_FAILURE,
-  }
-}
+  };
+};
