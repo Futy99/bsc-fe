@@ -6,6 +6,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ButtonLoading from 'components/ButtonLoading';
 import { RoutePaths } from 'constants/routePaths';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { INote } from 'store/modules/notes/@types';
@@ -22,6 +23,7 @@ interface IProps {
 export const Note = (props: IProps) => {
   const { id, note } = props.note;
   const history = useHistory();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { submitting } = useSelectors({
     submitting: selectNotesSubmitting,
@@ -52,7 +54,7 @@ export const Note = (props: IProps) => {
                 })
               }
             >
-              Edit
+              {t('components.note.edit')}
             </Button>
             <Button
               variant="outlined"
@@ -63,7 +65,7 @@ export const Note = (props: IProps) => {
                 submitting={submitting}
                 size={14}
                 loadingColor="secondary"
-                text="Delete"
+                text={t('components.note.delete')}
               />
             </Button>
           </ButtonGroup>

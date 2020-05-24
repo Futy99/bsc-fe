@@ -1,3 +1,4 @@
+import i18n from 'i18next';
 import { NotificationManager } from 'react-notifications';
 import { fork, put, takeEvery } from 'redux-saga/effects';
 
@@ -14,7 +15,10 @@ function* getNote() {
       const note = yield getNoteRequest(id);
       yield put(actions.getNoteSuccess(note.data));
     } catch (error) {
-      NotificationManager.error('Could not fetch note', 'Error');
+      NotificationManager.error(
+        i18n.t('notifications.error.getSimple'),
+        'Error',
+      );
       yield put(actions.getNoteFailure(error));
     }
   });
@@ -38,9 +42,12 @@ function* updateNote() {
       // So it's easier to just call whole flow to get current data
       //
       yield put(getNotes());
-      NotificationManager.success('Note was updated!', 'Success');
+      NotificationManager.success(
+        i18n.t('notifications.success.update'),
+        'Success',
+      );
     } catch (error) {
-      NotificationManager.error('Could not update note', 'Error');
+      NotificationManager.error(i18n.t('notifications.error.update'), 'Error');
       yield put(actions.updateNoteFailure());
     }
   });

@@ -12,11 +12,11 @@ export const ExpandCardDetail = styled(ExpansionPanelDetails)`
 `;
 
 export const ButtonGroup = styled('div')`
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-left: 60%;
+  margin-left: 50%;
   margin-top: 15px;
 `;

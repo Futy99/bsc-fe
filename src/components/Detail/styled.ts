@@ -1,4 +1,4 @@
-import { Card, TextField } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
@@ -13,8 +13,4 @@ export const ButtonGroup = styled('div')`
   align-items: center;
   margin-left: 80%;
   margin-top: 15px;
-`;
-
-export const StyledTextField = styled(TextField)`
-  color: black;
 `;

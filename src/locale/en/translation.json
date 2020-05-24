@@ -1,3 +1,42 @@
 {
-  "test": "testing en"
+  "notifications": {
+    "error": {
+      "getSimple": "Could not fetch note",
+      "get": "Could not fetch notes",
+      "delete": "Could not delete note",
+      "add": "Could not add note",
+      "update": "Could not update note"
+    },
+    "success": {
+      "delete": "Note deleted!",
+      "add": "Note added!",
+      "update": "Note was updated!"
+    }
+  },
+  "components": {
+    "addNoteCard": {
+      "placeholder": "Write your note",
+      "save": "Save"
+    },
+    "wrapper": {
+      "heading": "Notes",
+      "changeLanguage": "Change language",
+      "cs": "cs",
+      "en": "en"
+    },
+    "detail": {
+      "saving": "Saving",
+      "edit": "Edit",
+      "save": "Save",
+      "error": "There was an error :("
+    },
+    "note": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "notes": {
+      "error": "There was an error :(",
+      "noNotes": "No notes at all :("
+    }
+  }
 }

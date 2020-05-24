@@ -8,6 +8,10 @@ export enum Types {
   DELETE_NOTE = 'notes/DELETE_NOTE',
   DELETE_NOTE_SUCCESS = 'notes/DELETE_NOTE_SUCCESS',
   DELETE_NOTE_FAILURE = 'notes/DELETE_NOTE_FAILURE',
+
+  ADD_NOTE = 'notes/ADD_NOTE',
+  ADD_NOTE_SUCCESS = 'notes/ADD_NOTE_SUCCESS',
+  ADD_NOTE_FAILURE = 'notes/ADD_NOTE_FAILURE',
 }
 
 export const getNotes = () => {
@@ -37,15 +41,35 @@ export const deleteNote = (id: string) => {
   };
 };
 
-export const deleteNotesSuccess = (notes: INote[]) => {
+export const deleteNoteSuccess = (notes: INote[]) => {
   return {
     type: Types.DELETE_NOTE_SUCCESS,
     payload: { notes },
   };
 };
 
-export const deleteNotesFailure = () => {
+export const deleteNoteFailure = () => {
   return {
     type: Types.DELETE_NOTE_FAILURE,
+  };
+};
+
+export const addNote = (text: string) => {
+  return {
+    type: Types.ADD_NOTE,
+    payload: { text },
+  };
+};
+
+export const addNoteSuccess = (note: INote) => {
+  return {
+    type: Types.ADD_NOTE_SUCCESS,
+    payload: { note },
+  };
+};
+
+export const AddNoteFailure = () => {
+  return {
+    type: Types.ADD_NOTE_FAILURE,
   };
 };

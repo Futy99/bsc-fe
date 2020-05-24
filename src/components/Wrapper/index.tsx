@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import i18next from 'i18next';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ChangeLanguage, Container, TopBar, TopBarText } from './styled';
 
@@ -14,6 +15,7 @@ interface IProps {}
 
 const Wrapper = (props: React.PropsWithChildren<IProps>) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const { t } = useTranslation();
   const theme = useTheme();
   const { children } = props;
 
@@ -22,7 +24,7 @@ const Wrapper = (props: React.PropsWithChildren<IProps>) => {
   };
   const handleClose = (
     closedByInsideClick: boolean = false,
-    language: string = 'cs',
+    language: string = t('components.wrapper.en'),
   ) => {
     if (closedByInsideClick) {
       i18next.changeLanguage(language);
@@ -32,14 +34,14 @@ const Wrapper = (props: React.PropsWithChildren<IProps>) => {
   return (
     <Container>
       <TopBar theme={theme}>
-        <TopBarText>Notes</TopBarText>
+        <TopBarText>{t('components.wrapper.heading')}</TopBarText>
         <ChangeLanguage>
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
             onClick={e => handleButtonClick(e)}
           >
-            Change language
+            {t('components.wrapper.changeLanguage')}
           </Button>
           <Menu
             id="simple-menu"
@@ -49,10 +51,14 @@ const Wrapper = (props: React.PropsWithChildren<IProps>) => {
             onClose={handleClose}
           >
             <MenuItem onClick={() => handleClose(true, 'cs')}>
-              <Typography color="textSecondary">cs</Typography>
+              <Typography color="textSecondary">
+                {t('components.wrapper.cs')}
+              </Typography>
             </MenuItem>
             <MenuItem onClick={() => handleClose(true, 'en')}>
-              <Typography color="textSecondary">en</Typography>
+              <Typography color="textSecondary">
+                {t('components.wrapper.en')}
+              </Typography>
             </MenuItem>
           </Menu>
         </ChangeLanguage>

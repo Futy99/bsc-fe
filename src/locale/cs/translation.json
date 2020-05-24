@@ -1,3 +1,42 @@
 {
-  "test": "testing cz"
+  "notifications": {
+    "error": {
+      "getSimple": "Nepodařilo se získat poznámku",
+      "get": "Nepodařilo se získat poznámky",
+      "delete": "Nepodařilo se smazat poznámky",
+      "add": "Nepodařilo se přidat poznámku",
+      "update": "Nepodařilo se upravit poznámku"
+    },
+    "success": {
+      "delete": "Poznámka smazána!",
+      "add": "Poznámka přidána!",
+      "update": "Poznámka byla upravena!"
+    }
+  },
+  "components": {
+    "addNoteCard": {
+      "placeholder": "Napište vaší poznámku",
+      "save": "Uložit"
+    },
+    "wrapper": {
+      "heading": "Poznámky",
+      "changeLanguage": "Změnit jazyk",
+      "cs": "cz",
+      "en": "en"
+    },
+    "detail": {
+      "saving": "Ukládám",
+      "edit": "Editovat",
+      "save": "Uložit",
+      "error": "Nastala chyba :("
+    },
+    "note": {
+      "edit": "Editovat",
+      "delete": "Smazat"
+    },
+    "notes": {
+      "error": "Nastala chyba :(",
+      "noNotes": "Nejsou žádné poznámky :("
+    }
+  }
 }

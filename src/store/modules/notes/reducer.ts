@@ -50,7 +50,7 @@ export default createReducer(initialState, {
   },
   [actions.Types.DELETE_NOTE_SUCCESS]: (
     state: INotesReducer,
-    action: ReturnType<typeof actions.deleteNotesSuccess>,
+    action: ReturnType<typeof actions.deleteNoteSuccess>,
   ): INotesReducer => {
     const { notes } = action.payload;
     return {
@@ -62,6 +62,31 @@ export default createReducer(initialState, {
   [actions.Types.DELETE_NOTE_FAILURE]: (
     state: INotesReducer,
   ): INotesReducer => {
+    return {
+      ...state,
+      submitting: false,
+    };
+  },
+  // ADD
+  [actions.Types.ADD_NOTE]: (state: INotesReducer): INotesReducer => {
+    return {
+      ...state,
+      submitting: true,
+    };
+  },
+  [actions.Types.ADD_NOTE_SUCCESS]: (
+    state: INotesReducer,
+    action: ReturnType<typeof actions.addNoteSuccess>,
+  ): INotesReducer => {
+    const { note } = action.payload;
+    return {
+      ...state,
+      data: [...state.data, note],
+      error: null,
+      submitting: false,
+    };
+  },
+  [actions.Types.ADD_NOTE_FAILURE]: (state: INotesReducer): INotesReducer => {
     return {
       ...state,
       submitting: false,

@@ -1,6 +1,17 @@
-import { Button, CardContent, CircularProgress, Divider, TextField, Typography, withStyles } from '@material-ui/core'
+import {
+  Button,
+  CardContent,
+  CircularProgress,
+  Divider,
+  TextField,
+  Theme,
+  Typography,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core'
 import ButtonLoading from 'components/ButtonLoading'
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 import { updateNote } from 'store/modules/note/actions'
 import { selectNote, selectNoteError, selectNoteLoading, selectNoteSubmitting } from 'store/modules/note/selectors'
@@ -8,20 +19,23 @@ import useSelectors from 'utils/useSelectors'
 
 import { ButtonGroup, StyledCard } from './styled'
 
-const styles = theme => ({
+interface IProps extends WithStyles<typeof styles> {}
+
+const styles = (theme: Theme) => ({
   textField: {
     marginTop: 20,
     width: '100%',
   },
   input: {
-    color: '#000!important',
+    color: theme.palette.primary.dark,
   },
 });
 
-const Detail = (props) => {
+const Detail = (props: IProps) => {
   const { classes } = props;
   const [isBeingEdited, setIsBeingEdited] = useState(false);
   const dispatch = useDispatch();
+  const { t } = useTranslation()
   const { loading, note, error, submitting } = useSelectors({
     loading: selectNoteLoading,
     note: selectNote,
@@ -49,7 +63,7 @@ const Detail = (props) => {
               setIsBeingEdited(false);
             }}
           >
-            Save
+            {t('components.detail.save')}
           </Button>
         </>
       )
@@ -61,7 +75,7 @@ const Detail = (props) => {
               submitting={submitting} 
               size={14} 
               loadingColor="secondary" 
-              text="Delete"
+              text={t('components.detail.saving')}
             />
           </Button>
         </>
@@ -71,7 +85,7 @@ const Detail = (props) => {
       return (
         <>
           <Button variant="contained" color="primary" onClick={() => setIsBeingEdited(true)}>
-            Edit
+            {t('components.detail.edit')}
           </Button>
         </>
       )
@@ -79,7 +93,7 @@ const Detail = (props) => {
   }
 
   if(error) {
-    return <Typography color="textSecondary">There was an error :(</Typography>
+    return <Typography color="textSecondary">{t('components.detail.error')}</Typography>
   }
 
   if (loading || !note) {
@@ -92,6 +106,7 @@ const Detail = (props) => {
         <Divider/>
         {isBeingEdited ? (
           <TextField
+            focused={true}
             className={classes.textField}
             InputProps={{
               className: classes.input,
