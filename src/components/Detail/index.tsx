@@ -1,14 +1,4 @@
-import {
-  Button,
-  CardContent,
-  CircularProgress,
-  Divider,
-  TextField,
-  Theme,
-  Typography,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core'
+import { Button, CardContent, CircularProgress, Divider, TextField, Theme, Typography, WithStyles, withStyles } from '@material-ui/core'
 import ButtonLoading from 'components/ButtonLoading'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -29,12 +19,16 @@ const styles = (theme: Theme) => ({
   input: {
     color: theme.palette.primary.dark,
   },
-});
+  divider: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+})
 
 const Detail = (props: IProps) => {
-  const { classes } = props;
-  const [isBeingEdited, setIsBeingEdited] = useState(false);
-  const dispatch = useDispatch();
+  const { classes } = props
+  const [isBeingEdited, setIsBeingEdited] = useState(false)
+  const dispatch = useDispatch()
   const { t } = useTranslation()
   const { loading, note, error, submitting } = useSelectors({
     loading: selectNoteLoading,
@@ -42,45 +36,39 @@ const Detail = (props: IProps) => {
     error: selectNoteError,
     submitting: selectNoteSubmitting,
   })
-  const [noteText, setNoteText] = useState('');
+  const [noteText, setNoteText] = useState('')
 
   useEffect(() => {
-    if(noteText !== note?.note) {
-      setNoteText(note?.note);
+    if (noteText !== note?.note) {
+      setNoteText(note?.note)
     }
   }, [note])
-  
+
   const resolveButton = () => {
     if (isBeingEdited) {
       return (
         <>
-          <Button 
-            variant="contained" 
-            color="primary" 
+          <Button
+            variant="contained"
+            color="primary"
             onClick={() => {
-              dispatch(updateNote(note.id, noteText));
+              dispatch(updateNote(note.id, noteText))
               setNoteText(note.note)
-              setIsBeingEdited(false);
+              setIsBeingEdited(false)
             }}
           >
             {t('components.detail.save')}
           </Button>
         </>
       )
-    } else if (submitting){
+    } else if (submitting) {
       return (
         <>
           <Button variant="contained" color="primary" onClick={() => setIsBeingEdited(true)}>
-            <ButtonLoading 
-              submitting={submitting} 
-              size={14} 
-              loadingColor="secondary" 
-              text={t('components.detail.saving')}
-            />
+            <ButtonLoading submitting={submitting} size={14} loadingColor="secondary" text={t('components.detail.saving')} />
           </Button>
         </>
       )
-
     } else {
       return (
         <>
@@ -92,18 +80,18 @@ const Detail = (props: IProps) => {
     }
   }
 
-  if(error) {
+  if (error) {
     return <Typography color="textSecondary">{t('components.detail.error')}</Typography>
   }
 
   if (loading || !note) {
-    return <CircularProgress color="primary"/>
+    return <CircularProgress color="primary" />
   }
   return (
     <StyledCard>
       <CardContent>
         <Typography color="textSecondary">{note.id}</Typography>
-        <Divider/>
+        <Divider className={classes.divider} />
         {isBeingEdited ? (
           <TextField
             focused={true}
@@ -111,20 +99,19 @@ const Detail = (props: IProps) => {
             InputProps={{
               className: classes.input,
             }}
-            id="outlined-basic" 
-            variant="outlined" 
+            id="outlined-basic"
+            variant="outlined"
             multiline
-            onChange={(e) => setNoteText(e.target.value)} 
-            value={noteText}/>) 
-          : 
-          (<Typography color="textSecondary">{note.note}</Typography>)
-        }
-        <ButtonGroup>
-          {resolveButton()}
-        </ButtonGroup>
+            onChange={e => setNoteText(e.target.value)}
+            value={noteText}
+          />
+        ) : (
+          <Typography color="textSecondary">{note.note}</Typography>
+        )}
+        <ButtonGroup>{resolveButton()}</ButtonGroup>
       </CardContent>
     </StyledCard>
   )
 }
 
-export default withStyles(styles)(Detail);
+export default withStyles(styles)(Detail)

@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
 
 export const theme = createMuiTheme({
   typography: {
@@ -20,4 +20,4 @@ export const theme = createMuiTheme({
     contrastThreshold: 3,
     tonalOffset: 0.2,
   },
-});
+})

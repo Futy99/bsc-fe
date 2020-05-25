@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "target": "es5",
     "rootDir": "src",
     "resolveJsonModule": true,
@@ -21,17 +21,16 @@
     "skipLibCheck": true,
     "downlevelIteration": true,
     "jsx": "react",
-    "types": ["react", "node"],
+    "types": ["jest", "react", "node"],
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es5", "es6", "es7", "es2017.object"],
     "baseUrl": "./src",
     "paths": {
-      "assets/*": ["assets/*"],
       "store/*": ["store/*"],
       "constants/*": ["constants/*"],
       "utils/*": ["utils/*"],
       "components/*": ["components/*"],
-      "templates/*": ["screens/*"],
+      "screens/*": ["screens/*"],
       "routes/*": ["routes/*"],
       "locale/*": ["locale/*"],
     },

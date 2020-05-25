@@ -4,12 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const config = require('./env')
+const babelConf = require('../babel.config')
 
 const resolve = name => `${config.build.DIR_NAME}${config.build.SOURCE}${name}`
 
+const babelLoader = {
+  loader: 'babel-loader',
+  options: babelConf,
+}
+
 module.exports = {
   context: path.resolve(config.build.DIR_NAME, config.build.SOURCE),
-  entry:  [config.build.MAIN],
+  entry:  process.env.NODE_ENV === 'production' ? ['babel-polyfill', config.build.MAIN] : [config.build.MAIN],
   output: {
     filename: '[name].js',
     path: path.resolve(config.build.DIR_NAME, config.build.OUTPUT),
@@ -19,12 +25,11 @@ module.exports = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
-      assets: resolve('/assets'),
       store: resolve('/store'),
       utils: resolve('/utils'),
       components: resolve('/components'),
       constants: resolve('/constants'),
-      templates: resolve('/screens'),
+      screens: resolve('/screens'),
       routes: resolve('/routes'),
       locale: resolve('/locale'),
     },

@@ -1,21 +1,14 @@
-import {
-  Button,
-  CardContent,
-  TextField,
-  Theme,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core';
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { addNote } from 'store/modules/notes/actions';
+import { Button, CardContent, TextField, Theme, WithStyles, withStyles } from '@material-ui/core'
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch } from 'react-redux'
+import { addNote } from 'store/modules/notes/actions'
 
-import { StyledButtonWrapper, StyledCard } from './styled';
+import { StyledButtonWrapper, StyledCard } from './styled'
 
 interface IProps extends WithStyles<typeof styles> {
-  isBeingEdited: boolean;
-  setEditingState: (state: boolean) => void;
+  isBeingEdited: boolean
+  setEditingState: (state: boolean) => void
 }
 
 const styles = (theme: Theme) => ({
@@ -26,15 +19,15 @@ const styles = (theme: Theme) => ({
   input: {
     color: theme.palette.primary.dark,
   },
-});
+})
 
 const AddNoteCard = (props: IProps) => {
-  const { classes, isBeingEdited, setEditingState } = props;
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const [noteText, setNoteText] = useState('');
+  const { classes, isBeingEdited, setEditingState } = props
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const [noteText, setNoteText] = useState('')
   if (!isBeingEdited) {
-    return null;
+    return null
   }
   return (
     <StyledCard>
@@ -57,9 +50,9 @@ const AddNoteCard = (props: IProps) => {
             color="primary"
             variant="contained"
             onClick={() => {
-              setEditingState(!isBeingEdited);
-              setNoteText('');
-              dispatch(addNote(noteText));
+              setEditingState(!isBeingEdited)
+              setNoteText('')
+              dispatch(addNote(noteText))
             }}
           >
             {t('components.addNoteCard.save')}
@@ -67,7 +60,7 @@ const AddNoteCard = (props: IProps) => {
         </StyledButtonWrapper>
       </CardContent>
     </StyledCard>
-  );
-};
+  )
+}
 
-export default withStyles(styles)(AddNoteCard);
+export default withStyles(styles)(AddNoteCard)

@@ -1,9 +1,9 @@
-import i18next from 'i18next';
-import translationsCs from 'locale/cs/translation.json';
-import translationsEn from 'locale/en/translation.json';
-import { initReactI18next } from 'react-i18next';
+import i18next from 'i18next'
+import translationsCs from 'locale/cs/translation.json'
+import translationsEn from 'locale/en/translation.json'
+import { initReactI18next } from 'react-i18next'
 
-export const supportedLanguages = ['en', 'cs'];
+export const supportedLanguages = ['en', 'cs']
 
 i18next.use(initReactI18next).init({
   fallbackLng: 'en',
@@ -16,7 +16,7 @@ i18next.use(initReactI18next).init({
       translation: translationsCs,
     },
   },
-});
-export const t: typeof i18next.t = (...transParams) => i18next.t(transParams);
+})
+export const t: typeof i18next.t = (...transParams) => i18next.t(transParams)
 
-export default i18next;
+export default i18next

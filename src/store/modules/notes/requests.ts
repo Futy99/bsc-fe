@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from 'axios'
 
-import { INote } from './@types';
+import { INote } from './@types'
 
 export const getNotesRequest = (): Promise<INote> => {
-  return axios.get('https://bsc-be.herokuapp.com/notes');
-};
+  return axios.get('https://bsc-be.herokuapp.com/notes')
+}
 
 export const deleteNoteRequest = (id: string): Promise<INote> => {
   return axios.delete('https://bsc-be.herokuapp.com/notes', {
@@ -14,13 +14,13 @@ export const deleteNoteRequest = (id: string): Promise<INote> => {
     headers: {
       Accept: 'application/json',
     },
-  });
-};
+  })
+}
 
 export const addNoteRequest = (text: string): Promise<INote> => {
   return axios.put('http://bsc-be.herokuapp.com/notes', {
     params: {
       note: text,
     },
-  });
-};
+  })
+}

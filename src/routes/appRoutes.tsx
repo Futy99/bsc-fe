@@ -1,7 +1,7 @@
-import { RoutePaths } from 'constants/routePaths';
-import React from 'react';
-import HomePage from 'screens/HomePage';
-import NotesDetail from 'screens/NotesDetail';
+import { RoutePaths } from 'constants/routePaths'
+import React from 'react'
+import HomePage from 'screens/HomePage'
+import NotesDetail from 'screens/NotesDetail'
 
 export default [
   {
@@ -14,4 +14,4 @@ export default [
     exact: false,
     component: () => <NotesDetail />,
   },
-];
+]

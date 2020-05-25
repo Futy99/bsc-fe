@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" time="2.788">
+  <testsuite name="src/components/ButtonLoading/index.spec.tsx" errors="0" failures="0" skipped="0" timestamp="2020-05-25T09:21:47" time="1.528" tests="3">
+    <testcase classname="components/ButtonLoading - renders" name="components/ButtonLoading - renders" time="0.042">
+    </testcase>
+    <testcase classname="components/ButtonLoading - can click on button" name="components/ButtonLoading - can click on button" time="0.046">
+    </testcase>
+    <testcase classname="components/ButtonLoading - can not click on disabled button" name="components/ButtonLoading - can not click on disabled button" time="0.01">
+    </testcase>
+  </testsuite>
+</testsuites>

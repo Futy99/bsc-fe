@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled('div')`
   padding-top: 90px;
@@ -7,7 +7,7 @@ export const Container = styled('div')`
   align-items: center;
   height: 100%;
   width: 100%;
-`;
+`
 
 export const TopBar = styled('div')`
   width: 100%;
@@ -21,16 +21,16 @@ export const TopBar = styled('div')`
   top: 0;
   left: 0;
   margin-bottom: 100px;
-`;
+`
 
 export const TopBarText = styled('p')`
   color: white;
   font-size: 26px;
   font-weight: bold;
-`;
+`
 
 export const ChangeLanguage = styled('div')`
   position: absolute;
   top: 20px;
   right: 20px;
-`;
+`

@@ -3,7 +3,7 @@ const SOURCE = 'src'
 const MAIN = './index.tsx'
 const OUTPUT = 'dist'
 const BUNDLE = 'main.js'
-const PUBLIC_PATH = '/'
+const PUBLIC_PATH = ''
 const HTML_MAIN = '/index.html'
 
 module.exports = {
