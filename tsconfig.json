@@ -35,6 +35,6 @@
       "locale/*": ["locale/*"],
     },
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "useSelectors.ts"],
   "exclude": ["node_modules"]
 }

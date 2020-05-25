@@ -18,9 +18,12 @@ export const deleteNoteRequest = (id: string): Promise<INote> => {
 }
 
 export const addNoteRequest = (text: string): Promise<INote> => {
-  return axios.put('http://bsc-be.herokuapp.com/notes', {
+  return axios.put('https://bsc-be.herokuapp.com/notes', {
     params: {
       note: text,
+    },
+    headers: {
+      Accept: 'application/json',
     },
   })
 }
