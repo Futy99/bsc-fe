@@ -21,7 +21,7 @@ I modified `ButtonLoading/index.tsx` for testing purpose so I could show base te
 
 I didn't write more tests since it's bit time comsuming for test coding
 
-I use `jest` and `testing` for tests
+I use `jest` and `react-testing-library` for tests
 
 ## Webpack
 
@@ -41,7 +41,7 @@ For basic components I used `styled-components`
 
 ## Languages
 
-For diffent languages I used `i18next` and `i18next-react`
+For different languages I used `i18next` and `i18next-react`
 
 ## Networking
 
